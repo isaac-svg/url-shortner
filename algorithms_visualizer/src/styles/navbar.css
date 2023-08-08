@@ -1,0 +1,206 @@
+.header{
+    width: 80%;
+    margin-inline: auto;
+    /* background-color: rebeccapurple; */
+    margin-top: 1.5rem;
+    /* position: static;
+    top:1rem ; */
+}
+.header_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_wrapper{
+    display: flex;
+    justify-content: space-between;
+    /* background: olivedrab; */
+    gap: 2rem;
+    flex: 0.4;
+    /* align-items: center; */
+}
+
+.desktop_logo{
+    width: 8rem;
+}
+
+.desktop_logo > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.mobile_logo{
+    display: none;
+}
+
+.feature_list{
+    display: flex;
+    gap: clamp(0.75rem, 0.75rem + 3vh, 1.5rem);
+}
+.feature_list-item{
+    color: var(--Grayish-Violet);
+    font-weight: 600;
+    font-size: clamp(0.6rem, 0.6rem + 2vh, 1.5rem);
+    position: relative;
+}
+
+.feature_list-item::after{
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--Cyan);
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--animatime-duration) ease-in;
+}
+
+.feature_list-item:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.header_btns-wrapper{
+    display: flex;
+    gap: clamp(1rem, 1rem + 3vh, 2rem);
+}
+
+.header_btns-wrapper .header_btn{
+    padding: clamp(0.5rem, 0.5rem + 2vh, 1rem) clamp(1rem, 1rem + 2vh, 1.5rem);
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1rem + 2vh, 1.5rem);
+    background: none;
+    border: none;
+    border-radius: 100vmax;
+    border-width: 0%;
+    transition: all var(--animatime-duration) ease-in;
+}
+
+.header_btns-wrapper .header_btn:hover{
+    border-width:100% ;
+}
+
+.header_btns-wrapper .header_btn:focus{
+    outline: 2px solid var(--Dark-Violet);
+}
+
+.header_btns-wrapper .header_btn-login{
+    color: var(--Grayish-Violet);
+}
+
+.header_btns-wrapper .header_btn-login:hover{
+    background-color: var(--Cyan);
+    color: white;
+}
+
+.header_btns-wrapper .header_btn-signup{
+    color: white;
+    background: var(--Cyan);
+}
+
+.header_btns-wrapper .header_btn-signup:hover{
+    color: var(--Cyan);
+    background-color: white;
+}
+
+.toggle_btn{
+    display: none;
+}
+@media screen and (max-width: 720px) {
+    .header{
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header{
+        /* width: 100%; */
+        padding-inline: 1rem;
+        position: relative;
+        height: 50px;
+        z-index: 100;
+    }
+    .header_container{
+        flex-direction: column;
+        background-color: var(--Very-Dark-Blue);
+        width: 95%;
+        margin-inline: auto;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        align-items: space-between;
+        justify-content: space-between;
+        /* display: none; */
+        transition: all 500ms ease;
+        transform: translateX(-110%);
+    }
+
+    .header_container.show_dropdown{
+        /* display: block; */
+        transform: translateX(0);
+    }
+
+    .desktop_logo{
+        display: none;
+    }
+    .mobile_logo{
+        display: block;
+        width: 10rem;
+    }
+
+    .mobile_logo > img{
+        width: 100%;
+    }
+
+    .nav_wrapper{
+        width: 100%;
+    }
+    .feature_list{
+        flex-direction: column;
+        border-bottom: 1.5px solid var(--Gray);
+        /* background-color: orange; */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: white;
+        margin-bottom: 1rem;
+        
+    }
+    .feature_list-item{
+        color: white;
+    }
+    .feature_list-item:last-child{
+        margin-bottom: 2rem;
+    }
+    .header_btns-wrapper{
+        /* background-color: aqua; */
+        flex-direction: column;
+        width: 100%;
+    }
+    .header_btns-wrapper .header_btn-login{
+        color: white;
+    }
+    .header_btns-wrapper .header_btn-signup{
+        width: 100%;
+    }
+
+    .toggle_btn {
+        display: block;
+        /* background: #000; */
+        position: absolute;
+        top: 0rem;
+        right:0rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        transition: all 500ms ease;
+    }
+
+    .toggle_btn .toggle_icon{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
