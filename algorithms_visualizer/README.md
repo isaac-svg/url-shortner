@@ -2,8 +2,8 @@
 
 
 
-## Technologies used Vite + React + TS
+## Technologies used Vite + React + TS  
 
 
-
+    
 ## Feel free to contribute
