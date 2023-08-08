@@ -2,7 +2,7 @@
 
 
 
-## Technologies used Vite + React + TS  
+## Technologies used Vite + React + TS  + CSS3
 
 
     
