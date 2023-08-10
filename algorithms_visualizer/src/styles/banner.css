@@ -1,8 +1,11 @@
-
+.banner_wrapper{
+    padding-bottom: 5rem;
+}
 
 .banner_img-container{
     height:300px ;
     width: 100vw;
+    overflow-x: hidden;
     /* background: aqua; */
 }
 
@@ -46,6 +49,7 @@
     font-size: 2rem;
     color: white;
     font-weight: bold;
+    margin-bottom: 5rem;
 }
 
 @media screen and (min-width: 600px) {
