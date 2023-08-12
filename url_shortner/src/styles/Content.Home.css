@@ -1,0 +1,30 @@
+.form{
+    display: flex;
+    justify-content: center;
+
+}
+
+.form button{
+    border-radius: 0;
+}
+
+.form input{
+    border-radius: 0;
+    padding: .4rem 1rem;
+    border: none;
+    background: none;
+
+    color: black;
+
+    border: 1px solid black;
+}
+
+.content h2{
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.rabit{
+    font-size: 4rem;
+}

@@ -1,0 +1,45 @@
+header{
+    width: 100%;
+    /* margin: 0 auto; */
+    /* height: 60px; */
+
+    background: rgba(247, 246, 243, 0.555);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: .7rem 1rem;
+
+    color: black;
+    border-bottom: 1px solid black;
+
+}
+
+
+
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+a{
+    /* cursor: auto; */
+    position: relative;
+}
+
+a::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0%;
+    background: black;       
+    height: 2px;
+    transition: 500ms ease-in-out;
+}
+
+li:hover > a::before{
+    width: 100%;
+}
