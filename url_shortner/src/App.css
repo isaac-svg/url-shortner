@@ -1,22 +1,29 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#root {
+  max-width: auto;
+  margin: 0 auto;
+  min-height: 100vh;
+  
+  background: rgb(235, 235, 235);
+  color: black;
+  
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.body{
+  min-height: 83vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
 
 @keyframes logo-spin {
   from {
@@ -40,3 +47,5 @@
 .read-the-docs {
   color: #888;
 }
+
+
