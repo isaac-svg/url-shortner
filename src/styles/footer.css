@@ -1,0 +1,57 @@
+.footer_container{
+background-color: var(--Very-Dark-Violet);
+color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-block: 2rem;
+}
+
+.footer_container .footer_logo{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.footer_info{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.footer_blog-heading{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer_blog-items{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.footer_blog-items li:hover{
+    color: var(--Cyan);
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+    .footer_container{
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 4rem 5rem;
+    }
+
+    .footer_info{
+        flex-direction: row;
+    }
+}
