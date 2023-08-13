@@ -14,4 +14,4 @@
 
 ## Up next
 
-  Advenced Statistics Section
+  Handle Medium sized screen responsiveness for Statistics Card
