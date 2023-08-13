@@ -10,8 +10,8 @@
 
 ## Day two
 
-  -Form
+  Form
 
 ## Up next
 
-    - Advenced Statistics Section
+  Advenced Statistics Section
