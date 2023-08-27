@@ -5,6 +5,7 @@
     background: var(--Gray);
 }
 
+
 .stat_msg{
     text-align: center;
     padding-block: 1rem;
@@ -38,8 +39,9 @@
 .cards .card{
  background: white;
  border-radius: 1.2rem;
- padding: 2rem;
+ padding-inline: clamp(1rem, 1rem + 2vh, 2rem);
  padding-top: 6rem;
+ padding-bottom: 3rem;
  position: relative;
  height: minmax(150px , auto);
  text-align: center;
@@ -68,7 +70,7 @@
 .card .card_title{
 
     font-weight: 600;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.5rem + 3%, 2rem);
     padding-bottom: 1rem;
 }
 
@@ -84,7 +86,12 @@
     .stat_container .cards{
         height: 400px;
         margin: 5%;
-    }
+        position: relative;
+        }
+
+  
+
+
     .cards .ruler{
         height: 10px;
         width: 100%;
@@ -97,9 +104,10 @@
     
         padding-top: 6rem;
         position: absolute;
-        height: 250px;
-        width: 350px;
+        height: max(260px, auto);
+        width: min(300px, 30%);
         text-align: center;
+        padding-bottom: 4rem;
         margin-bottom: 6rem;
        }
 
@@ -109,16 +117,13 @@
        }
        .cards .card.card_2{
         top: 10%;
-        left: calc(350px + 2%);
+        left: calc(min(300px, 30%) + 5%);
        }
        .cards .card.card_3{
         bottom: 0;
         right: 0;
        }
-       .stat_msg{
-        
-        
-       }
+
        .stat_msg .stat_msg-header{
         
         font-size: 5rem;

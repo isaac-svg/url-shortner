@@ -18,31 +18,26 @@ const Footer = () => {
   <div className="footer_blog">
     <h3 className="footer_blog-heading">Features</h3>
     <ul className="footer_blog-items">
-    <li>Link Shortening</li>
-    <li>Branded Links Analytics</li>
-    <li>Analytics</li>
+    <li>Blog</li>
+    <li>Developers</li>
+    <li>Support</li>
     </ul>
   </div>
 
   <div className="footer_blog">
     <h3 className="footer_blog-heading">Features</h3>
     <ul className="footer_blog-items">
-    <li>Link Shortening</li>
-    <li>Branded Links Analytics</li>
-    <li>Analytics</li>
+    <li>About</li>
+    <li>Our team</li>
+    <li>Carrers</li>
+    <li>Contact</li>
     </ul>
   </div>
 
-  <div className="footer_blog">
-    <h3 className="footer_blog-heading">Features</h3>
-    <ul className="footer_blog-items">
-    <li>Link Shortening</li>
-    <li>Branded Links Analytics</li>
-    <li>Analytics</li>
-    </ul>
-  </div>
+  
+</div>
 
-  <div className="icons">
+<div className="icons">
     <div className="icon_wrapper">
       <img src="images/icon-facebook.svg" alt="facebook icon" />
     </div>
@@ -58,8 +53,6 @@ const Footer = () => {
       <img src="images/icon-instagram.svg" alt="instgram icon" />
     </div>
   </div>
-</div>
-
     </div>
   )
 }

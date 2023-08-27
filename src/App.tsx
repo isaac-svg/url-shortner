@@ -7,7 +7,7 @@ import FooterBanner from "./components/FooterBanner"
 import Footer from "./components/Footer"
 const App = () => {
   return (
-    <div style={{width:"100vw", overflowX:"hidden"}}>
+    <div style={{width:"100vw", overflowX:"hidden", maxWidth:"1500px", marginInline:"auto"}}>
       <Navbar/>
       <Banner/>
       <Form/>

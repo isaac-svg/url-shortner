@@ -18,6 +18,7 @@ padding-block: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 .footer_blog-heading{
     font-size: 1.5rem;
@@ -49,9 +50,30 @@ padding-block: 2rem;
         flex-direction: row;
         justify-content: space-between;
         padding: 4rem 5rem;
+        gap: 5rem;
+        align-items: start;
     }
 
     .footer_info{
         flex-direction: row;
+        flex: 0.5;
+        display: flex;
+        justify-content: space-between;
+        font-size: 2rem;
+    }
+
+    .footer_blog-heading{
+        text-align: start;
+    }
+    .footer_blog-items{
+        align-items: start;
+        font-size: 1.6rem;
+    }
+
+    .footer_logo{
+        flex: 0.2;
+    }
+    .icons{
+        flex: 0.2;
     }
 }
