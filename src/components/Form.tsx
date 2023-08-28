@@ -64,8 +64,9 @@ const copyToBoard =  (shortUrl:string)=>{
     addToStorage(data)
     const res = getAllData()
     setUrl(res)
-  } catch (error) {
+  } catch (error : any) {
     console.log(error)
+    setIsError(error.message)
   }
   }
   return (
@@ -112,8 +113,6 @@ const copyToBoard =  (shortUrl:string)=>{
         }
         
 
-
-        
       </div>
     </section>
   )
