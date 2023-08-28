@@ -61,6 +61,7 @@
     color: white;
     font-weight: 600;
 }
+ 
 
 .outputs{
     /* width: 100vw; */
@@ -115,7 +116,9 @@
     background-color: var(--Cyan);
     border-radius: 0.4rem;
 }
-
+.copy_btn.copied {
+    background-color: var(--Dark-Violet);
+}
 
 @media screen and (min-width: 600px) {
 
