@@ -6,9 +6,9 @@ import "../styles/form.css"
 const Form = () => {
   const [isError,setIsError] =  useState<boolean>(false)
   const {addToStorage, getAllData} = useLocalStorage()
-  const [copy,setCopy] = useState<boolean>(false)
   const formRef = useRef<HTMLInputElement>(null)
   const urldataRef = useRef<HTMLSpanElement>(null)
+  const [copyStatus, setCopyStatus] = useState<{ [key: string]: boolean }>({});
 
   interface urlObj{
     origUrl:string,
@@ -21,10 +21,7 @@ const Form = () => {
   const  [urls, setUrl] = useState<urlObj[]>([urlData])
 
   useEffect(()=>{
-    // addToStorage({origUrl:"Helllo", shortUrl:"dsfjkdsfsqj"})
-    // addToStorage({origUrl:"Helllo", shortUrl:"dsfjkdsfs2hj"})
-    // addToStorage({origUrl:"Helllo", shortUrl:"dsfjkdsfsreh"})
-
+  
     const urls = getAllData()
     setUrl(urls)
     
@@ -36,12 +33,19 @@ const Form = () => {
   }
 
 const copyToBoard =  (shortUrl:string)=>{
-  setCopy(true)
+  setCopyStatus((prevCopyStatus) => ({
+      ...prevCopyStatus,
+      [shortUrl]: true,
+    }));
   if (urldataRef.current) {
     clipboardCopy(shortUrl)
   }
   setTimeout(()=>{
-    setCopy(false)
+    setCopyStatus((prevCopyStatus) => ({
+      ...prevCopyStatus,
+      [shortUrl]: false,
+    }));
+    
   },3000)
 
 }
@@ -78,8 +82,9 @@ const copyToBoard =  (shortUrl:string)=>{
 
       <div className="outputs">
         {
-          urls?.map((url)=>
-<div className="single_output" key={url.shortUrl}>
+          urls?.map((url)=>{
+            return (
+              <div className="single_output" key={url.shortUrl}>
           <div className="original_link-wrapper">
           <span className="original_link">
            {url.origUrl}
@@ -94,58 +99,19 @@ const copyToBoard =  (shortUrl:string)=>{
             </span>
             </div>
            
-          
            <div>
-           <button className={`copy_btn ${ copy && `copied`}`} onClick={()=>copyToBoard(url.shortUrl)}>{copy ? "Copied!" : "Copy"}</button>
+           <button className={`copy_btn ${copyStatus[url.shortUrl] ? "copied" : ""}`} onClick={()=>copyToBoard(url.shortUrl)}>{copyStatus[url.shortUrl] ? "Copied!" : "Copy"}
+           </button>
            </div>
           </div>
         </div>
+            )
+          }
+
           )
         }
         
-        {/* <div className="single_output">
-          <div className="original_link-wrapper">
-          <span className="original_link">
-            https://localhost:3000/valence.
-          </span>
-          </div>
-          <div className="horizontal_line"></div>
-          <div className="shortened_link-container">
-            
-            <div className="shortened_link-wrapper">
-            <span className="shortend_link">
-              https://we3.rew
-            </span>
-            </div>
-           
-          
-           <div>
-           <button className="copy_btn">Copy</button>
-           </div>
-          </div>
-        </div>
 
-        <div className="single_output">
-          <div className="original_link-wrapper">
-          <span className="original_link">
-            https://localhost:3000/valence.
-          </span>
-          </div>
-          <div className="horizontal_line"></div>
-          <div className="shortened_link-container">
-            
-            <div className="shortened_link-wrapper">
-            <span className="shortend_link">
-              https://we3.rew
-            </span>
-            </div>
-           
-          
-           <div>
-           <button className="copy_btn">Copy</button>
-           </div>
-          </div>
-        </div> */}
 
         
       </div>
