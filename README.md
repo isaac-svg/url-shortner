@@ -12,4 +12,4 @@
 
 ## Up next
 
-  Handle Medium sized screen responsiveness for Statistics Card component
+  Integrate with backend
