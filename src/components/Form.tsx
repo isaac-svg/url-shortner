@@ -28,7 +28,13 @@ const Form = () => {
   },[])
   const handleSubmit = (e:FormEvent)=>{
     e.preventDefault()
+    if (!formRef.current?.value)
+    {
+      setIsError(true)
+      return setTimeout(()=>{setIsError(false);},3000)
+    }
     const data:string = formRef.current?.value!
+    console.log(data)
     generateURL(data)
   }
 
@@ -51,22 +57,15 @@ const copyToBoard =  (shortUrl:string)=>{
 }
   const generateURL = async (url:string)=>{
   try {
-    const result =  await  axios.post("http://localhost:8080",{url},{
-      withCredentials:true,
-      headers:{
-        "Content-Type":"application/json"
-      }
-
-       
-    })
-
+    const result =  await  axios.post("https://stly.vercel.app/stly",{url})
+    console.log(result)
   const data =   result.data
     addToStorage(data)
     const res = getAllData()
     setUrl(res)
   } catch (error : any) {
     console.log(error)
-    setIsError(error.message)
+    // setIsError(error.message)
   }
   }
   return (
