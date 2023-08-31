@@ -81,12 +81,18 @@
 }
 
 .single_output .original_link-wrapper{
-    padding: 1.5rem;
+    padding: 1rem;
     overflow-x: auto;
     flex: 0.5;
+    /* max-height: 30px; */
+    flex: 0.95;
+    white-space: nowrap;
+    display: flex;
+    border-right: 2px solid var(--Dark-Violet);
 }
 .single_output .shortened_link-wrapper{
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
+
 }
 
 .single_output .horizontal_line{

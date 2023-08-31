@@ -6,7 +6,7 @@ interface urlObj{
 
 const addToStorage = (data:urlObj) : void=>{
 
-    const _id: string = Date().toString()
+    const _id: string = new Date().toString();
     const value = JSON.stringify(data);
     localStorage.setItem(_id,value)
 }
@@ -22,16 +22,17 @@ const getAllData = () : urlObj[] =>{
     const keys: string[] = Object.keys(localStorage);
 
   
-    keys.forEach(key=>{
+    keys.forEach(key=>{   // O(n)
      const data =   localStorage.getItem(key) || ""
-     console.log(data, "data")
-     const jsonData = JSON.parse(data)
-        allData.unshift(jsonData)
+    
+     const jsonData = JSON.parse(data) 
+    
+        allData.push(jsonData); // O(1)
         
     })
      
 
-     return allData;
+     return (allData.reverse()); //O(n)
 
 }
 const useLocalStorage = ()=>{

@@ -3,6 +3,7 @@ import axios from "axios"
 import clipboardCopy from "clipboard-copy"
 import useLocalStorage from "../utils/useLocalStorage"
 import "../styles/form.css"
+import Loader from "../widgets/Loader"
 const Form = () => {
   const [isError,setIsError] =  useState<boolean>(false)
   const {addToStorage, getAllData} = useLocalStorage()
@@ -19,7 +20,7 @@ const Form = () => {
     shortUrl: ""
   }
   const  [urls, setUrl] = useState<urlObj[]>([urlData])
-
+const [isLoading, setIsLoading] = useState<boolean>(false)
   useEffect(()=>{
   
     const urls = getAllData()
@@ -57,14 +58,20 @@ const copyToBoard =  (shortUrl:string)=>{
 }
   const generateURL = async (url:string)=>{
   try {
+    setIsLoading(true)
     const result =  await  axios.post("https://stly.vercel.app/stly",{url})
-    console.log(result)
-  const data =   result.data
-    addToStorage(data)
+    if (result.status)
+    {
+      setIsLoading(false)
+    }
+  
+    addToStorage({origUrl:url, shortUrl:result.data.payload})
     const res = getAllData()
     setUrl(res)
   } catch (error : any) {
     console.log(error)
+    setIsLoading(false)
+    alert(error.message)
     // setIsError(error.message)
   }
   }
@@ -73,7 +80,7 @@ const copyToBoard =  (shortUrl:string)=>{
       <div className="form_box">
       <form className="form" onSubmit={handleSubmit}>
         <div className="input_container">
-        <input ref={formRef} type="text" placeholder="shorten a link here..." className={`input_field ${isError  && "input_error"}`} />
+        <input ref={formRef} type="url" placeholder="shorten a link here..." className={`input_field ${isError  && "input_error"}`} />
         {isError && <span className="error_msg" > Please add a link</span>}
         </div>
     <button className="form_btn">Shorten it!</button>
@@ -82,9 +89,9 @@ const copyToBoard =  (shortUrl:string)=>{
 
       <div className="outputs">
         {
-          urls?.map((url)=>{
+          urls?.map((url,idx)=>{
             return (
-              <div className="single_output" key={url.shortUrl}>
+              <div className="single_output" key={url.shortUrl+idx}>
           <div className="original_link-wrapper">
           <span className="original_link">
            {url.origUrl}
@@ -113,6 +120,7 @@ const copyToBoard =  (shortUrl:string)=>{
         
 
       </div>
+    { isLoading && <Loader />}
     </section>
   )
 }
